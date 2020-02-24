@@ -1,0 +1,31 @@
+[package]
+name = "ewasm-example"
+version = "0.1.0"
+authors = ["Lars Hupel <lars.hupel@innoq.com>"]
+edition = "2018"
+
+[dependencies]
+pwasm-ethereum = "0.8"
+pwasm-std = "0.13.1"
+pwasm-abi = "0.2"
+pwasm-abi-derive = "0.2"
+
+[dependencies.uint]
+default-features = false
+features = ["common"]
+version = "0.5.0"
+
+[dependencies.lazy_static]
+features = ["spin_no_std"]
+version = "1.4.0"
+
+[dev-dependencies.pwasm-test]
+git = "https://github.com/paritytech/pwasm-test"
+rev = "6e621660d1513185fecf6dac5ec2fc8758ff4797"
+default-features = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[features]
+std = ["pwasm-std/std", "pwasm-ethereum/std", "pwasm-test/std"]
